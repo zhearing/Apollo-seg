@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef CLUSTER2D_H_
-#define CLUSTER2D_H_
+#ifndef SRC_CLUSTER2D_H_
+#define SRC_CLUSTER2D_H_
 
 #include <iostream>
 #include <algorithm>
@@ -426,4 +426,4 @@ class Cluster2D {
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_LIDAR_SEGMENTATION_CNNSEG_CLUSTER2D_H_
+#endif  // SRC_CLUSTER2D_H_

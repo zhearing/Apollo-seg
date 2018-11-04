@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MIN_BOX_H
-#define MIN_BOX_H
+#ifndef SRC_MIN_BOX_H
+#define SRC_MIN_BOX_H
 
 #include <string>
 #include <vector>
@@ -61,4 +61,4 @@ class MinBoxObjectBuilder : public BaseObjectBuilder {
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_LIDAR_OBJECT_BUILDER_MIN_BOX_H
+#endif  // SRC_MIN_BOX_H

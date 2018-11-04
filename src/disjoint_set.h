@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef DISJOINT_SET_H_
-#define DISJOINT_SET_H_
+#ifndef SRC_DISJOINT_SET_H_
+#define SRC_DISJOINT_SET_H_
 
 namespace apollo {
 namespace common {
@@ -74,4 +74,4 @@ void DisjointSetUnion(T *x, T *y) {
 }  // namespace common
 }  // namespace apollo
 
-#endif  // DISJOINT_SET_H_
+#endif  // SRC_DISJOINT_SET_H_

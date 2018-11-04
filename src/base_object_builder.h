@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *****************************************************************************/
-#ifndef BASE_OBJECT_BUILDER_H_
-#define BASE_OBJECT_BUILDER_H_
+#ifndef SRC_BASE_OBJECT_BUILDER_H_
+#define SRC_BASE_OBJECT_BUILDER_H_
 
 #include <string>
 #include <vector>
@@ -111,4 +111,4 @@ class BaseObjectBuilder {
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_LIDAR_INTERFACE_BASE_OBJECT_BUILDER_H_
+#endif  // SRC_BASE_OBJECT_BUILDER_H_

@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef CNN_SEGMENTATION_H_  // NOLINT
-#define CNN_SEGMENTATION_H_  // NOLINT
+#ifndef SRC_CNN_SEGMENTATION_H_  // NOLINT
+#define SRC_CNN_SEGMENTATION_H_  // NOLINT
 
 #include <memory>
 #include <string>

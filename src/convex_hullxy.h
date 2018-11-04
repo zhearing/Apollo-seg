@@ -51,8 +51,8 @@
  *
  */
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_COMMON_CONVEX_HULLXY_H_
-#define MODULES_PERCEPTION_OBSTACLE_COMMON_CONVEX_HULLXY_H_
+#ifndef SRC_CONVEX_HULLXY_H_
+#define SRC_CONVEX_HULLXY_H_
 
 #include <algorithm>
 #include <string>
@@ -235,4 +235,4 @@ class ConvexHull2DXY : public pcl::ConvexHull<PointInT> {
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_COMMON_CONVEX_HULLXY_H_
+#endif  // SRC_CONVEX_HULLXY_H_

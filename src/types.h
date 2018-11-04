@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_BASE_TYPES_H_
-#define MODULES_PERCEPTION_OBSTACLE_BASE_TYPES_H_
+#ifndef SRC_TYPES_H_
+#define SRC_TYPES_H_
 
 #include <string>
 
@@ -77,4 +77,4 @@ bool is_camera(SensorType sensor_type);
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_BASE_TYPES_H_
+#endif  // SRC_TYPES_H_

@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_COMMON_GEOMETRY_UTIL_H_
-#define MODULES_PERCEPTION_OBSTACLE_COMMON_GEOMETRY_UTIL_H_
+#ifndef SRC_GEOMETRY_UTIL_H_
+#define SRC_GEOMETRY_UTIL_H_
 
 #include <cfloat>
 
@@ -184,4 +184,4 @@ double VectorTheta2dXy(const Eigen::Vector3f& v1, const Eigen::Vector3f& v2);
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_COMMON_GEOMETRY_UTIL_H_
+#endif  // SRC_GEOMETRY_UTIL_H_

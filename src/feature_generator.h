@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_LIDAR_SEGMENTATION_CNNSEG_FEATURE_GENERATOR_H_  // NOLINT
-#define MODULES_PERCEPTION_OBSTACLE_LIDAR_SEGMENTATION_CNNSEG_FEATURE_GENERATOR_H_  // NOLINT
+#ifndef SRC_FEATURE_GENERATOR_H_  // NOLINT
+#define SRC_FEATURE_GENERATOR_H_  // NOLINT
 
 #include <cmath>
 #include <string>

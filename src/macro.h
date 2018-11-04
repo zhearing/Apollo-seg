@@ -18,8 +18,8 @@
  * @file
  */
 
-#ifndef MODULES_COMMON_MACRO_H_
-#define MODULES_COMMON_MACRO_H_
+#ifndef SRC_MACRO_H_
+#define SRC_MACRO_H_
 
 #include <iomanip>
 #include <iostream>
@@ -42,4 +42,4 @@
   }                                         \
   DISALLOW_IMPLICIT_CONSTRUCTORS(classname) \
  private:
-#endif  // MODULES_COMMON_MACRO_H_
+#endif  // SRC_MACRO_H_

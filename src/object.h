@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef OBJECT_H_
-#define OBJECT_H_
+#ifndef SRC_OBJECT_H_
+#define SRC_OBJECT_H_
 
 #include <memory>
 #include <string>
@@ -90,4 +90,4 @@ struct alignas(16) Object {
 }  // namespace perception
 }  // namespace apollo
 
-#endif  // MODULES_PERCEPTION_OBSTACLE_BASE_OBJECT_H_
+#endif  // SRC_OBJECT_H_
