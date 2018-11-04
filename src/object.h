@@ -14,8 +14,8 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_BASE_OBJECT_H_
-#define MODULES_PERCEPTION_OBSTACLE_BASE_OBJECT_H_
+#ifndef OBJECT_H_
+#define OBJECT_H_
 
 #include <memory>
 #include <string>
@@ -30,12 +30,6 @@ namespace perception {
 
 struct alignas(16) Object {
   Object();
-  // deep copy
-  void clone(const Object& rhs);
-  std::string ToString() const;
-  void AddFourCorners(PerceptionObstacle* pb_obj) const;
-  void Serialize(PerceptionObstacle* pb_obj) const;
-  void Deserialize(const PerceptionObstacle& pb_obs);
 
   // object id per frame
   int id = 0;
@@ -62,7 +56,7 @@ struct alignas(16) Object {
   float score = 0.0;
   // foreground score/probability type
   PerceptionObstacle::ConfidenceType score_type =
-      PerceptionObstacle::CONFIDENCE_CNN;
+          PerceptionObstacle::CONFIDENCE_CNN;
 
   // Object classification type.
   ObjectType type = ObjectType::UNKNOWN;
@@ -72,73 +66,25 @@ struct alignas(16) Object {
   // fg/bg flag
   bool is_background = false;
 
-  // tracking information
-  int track_id = 0;
-  Eigen::Vector3d velocity = Eigen::Vector3d::Zero();
-  // age of the tracked object
-  double tracking_time = 0.0;
-  double latest_tracked_time = 0.0;
-  double timestamp = 0.0;
-
-  // stable anchor_point during time, e.g., barycenter
-  Eigen::Vector3d anchor_point;
-
-  // noise covariance matrix for uncertainty of position and velocity
-  Eigen::Matrix3d position_uncertainty;
-  Eigen::Matrix3d velocity_uncertainty;
-
-  // modeling uncertainty from sensor level tracker
-  Eigen::Matrix4d state_uncertainty = Eigen::Matrix4d::Identity();
-  // Tailgating (trajectory of objects)
-  std::vector<Eigen::Vector3d> drops;
-  // CIPV
-  bool b_cipv = false;
-  // local lidar track id
-  int local_lidar_track_id = -1;
-  // local radar track id
-  int local_radar_track_id = -1;
-  // local camera track id
-  int local_camera_track_id = -1;
-
-  // local lidar track ts
-  double local_lidar_track_ts = -1;
-  // local radar track ts
-  double local_radar_track_ts = -1;
-  // local camera track ts
-  double local_camera_track_ts = -1;
-
-  // sensor particular supplements, default nullptr
-  RadarSupplementPtr radar_supplement = nullptr;
-  CameraSupplementPtr camera_supplement = nullptr;
-};
-
-// Sensor single frame objects.
-struct SensorObjects {
-  SensorObjects() {
-    sensor2world_pose = Eigen::Matrix4d::Zero();
-    sensor2world_pose_static = Eigen::Matrix4d::Zero();
-  }
-
-  std::string ToString() const;
-
-  // Transmit error_code to next subnode.
-  common::ErrorCode error_code = common::ErrorCode::OK;
-
-  SensorType sensor_type = SensorType::UNKNOWN_SENSOR_TYPE;
-  std::string sensor_id;
-  double timestamp = 0.0;
-  SeqId seq_num = 0;
-  std::vector<std::shared_ptr<Object>> objects;
-  Eigen::Matrix4d sensor2world_pose;
-  Eigen::Matrix4d sensor2world_pose_static;
-  LaneObjectsPtr lane_objects;
-
-  uint32_t cipv_index = -1;
-  uint32_t cipv_track_id = -1;
-
-  // sensor particular supplements, default nullptr
-  RadarFrameSupplementPtr radar_frame_supplement = nullptr;
-  CameraFrameSupplementPtr camera_frame_supplement = nullptr;
+//  // tracking information
+//  int track_id = 0;
+//  Eigen::Vector3d velocity = Eigen::Vector3d::Zero();
+//  // age of the tracked object
+//  double tracking_time = 0.0;
+//  double latest_tracked_time = 0.0;
+//  double timestamp = 0.0;
+//
+//  // stable anchor_point during time, e.g., barycenter
+//  Eigen::Vector3d anchor_point;
+//
+//  // noise covariance matrix for uncertainty of position and velocity
+//  Eigen::Matrix3d position_uncertainty;
+//  Eigen::Matrix3d velocity_uncertainty;
+//
+//  // modeling uncertainty from sensor level tracker
+//  Eigen::Matrix4d state_uncertainty = Eigen::Matrix4d::Identity();
+//  // Tailgating (trajectory of objects)
+//  std::vector<Eigen::Vector3d> drops;
 };
 
 }  // namespace perception

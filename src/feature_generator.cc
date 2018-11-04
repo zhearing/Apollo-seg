@@ -15,7 +15,7 @@
  *****************************************************************************/
 
 #include "feature_generator.h"
-
+#include "config.h"
 #include "util.h"
 
 using std::vector;
@@ -25,23 +25,15 @@ namespace perception {
 namespace cnnseg {
 
 template <typename Dtype>
-bool FeatureGenerator<Dtype>::Init(const FeatureParam& feature_param,
-                                   caffe::Blob<Dtype>* out_blob) {
+bool FeatureGenerator<Dtype>::Init(caffe::Blob<Dtype>* out_blob) {
   out_blob_ = out_blob;
 
   // raw feature parameters
-  range_ = feature_param.has_point_cloud_range()
-               ? static_cast<int>(feature_param.point_cloud_range())
-               : 60;
-  width_ =
-      feature_param.has_width() ? static_cast<int>(feature_param.width()) : 640;
-  height_ = feature_param.has_height()
-                ? static_cast<int>(feature_param.height())
-                : 640;
-  min_height_ =
-      feature_param.has_min_height() ? feature_param.min_height() : -5.0;
-  max_height_ =
-      feature_param.has_max_height() ? feature_param.max_height() : 5.0;
+  range_ = 60;
+  width_ = 640;
+  height_ = 640;
+  min_height_ = -5.0;
+  max_height_ = 5.0;
   CHECK_EQ(width_, height_)
       << "Current implementation version requires input_width == input_height.";
 
@@ -155,14 +147,12 @@ void FeatureGenerator<Dtype>::Generate(
   }
 }
 
-template bool FeatureGenerator<float>::Init(const FeatureParam& feature_param,
-                                            caffe::Blob<float>* blob);
+template bool FeatureGenerator<float>::Init(caffe::Blob<float>* blob);
 
 template void FeatureGenerator<float>::Generate(
     apollo::perception::pcl_util::PointCloudConstPtr pc_ptr);
 
-template bool FeatureGenerator<double>::Init(const FeatureParam& feature_param,
-                                             caffe::Blob<double>* blob);
+template bool FeatureGenerator<double>::Init(caffe::Blob<double>* blob);
 
 template void FeatureGenerator<double>::Generate(
     apollo::perception::pcl_util::PointCloudConstPtr pc_ptr);

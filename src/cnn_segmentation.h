@@ -14,15 +14,15 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_LIDAR_SEGMENTATION_CNNSEG_CNN_SEGMENTATION_H_  // NOLINT
-#define MODULES_PERCEPTION_OBSTACLE_LIDAR_SEGMENTATION_CNNSEG_CNN_SEGMENTATION_H_  // NOLINT
+#ifndef CNN_SEGMENTATION_H_  // NOLINT
+#define CNN_SEGMENTATION_H_  // NOLINT
 
 #include <memory>
 #include <string>
 #include <vector>
 
 #include "caffe/caffe.hpp"
-
+#include "config.h"
 #include "pcl_types.h"
 #include "object.h"
 #include "cluster2d.h"
@@ -31,27 +31,24 @@
 namespace apollo {
 namespace perception {
 
-class CNNSegmentation : public BaseSegmentation {
+class CNNSegmentation {
  public:
-  CNNSegmentation() : BaseSegmentation() {}
+  CNNSegmentation() {}
   ~CNNSegmentation() {}
 
-  bool Init() override;
+  bool Init();
 
   bool Segment(pcl_util::PointCloudPtr pc_ptr,
                const pcl_util::PointIndices& valid_indices,
-               const SegmentationOptions& options,
-               std::vector<std::shared_ptr<Object>>* objects) override;
+               std::vector<std::shared_ptr<Object>>* objects);
 
-  std::string name() const override { return "CNNSegmentation"; }
+  std::string name() const { return "CNNSegmentation"; }
 
   float range() const { return range_; }
   int width() const { return width_; }
   int height() const { return height_; }
 
  private:
-  bool GetConfigs(std::string* config_file, std::string* proto_file,
-                  std::string* weight_file);
   // range of bird-view field (for each side)
   float range_ = 0.0;
   // number of cells in bird-view width
@@ -60,7 +57,6 @@ class CNNSegmentation : public BaseSegmentation {
   int height_ = 0;
 
   // paramters of CNNSegmentation
-  cnnseg::CNNSegParam cnnseg_param_;
   // Caffe network object
   std::shared_ptr<caffe::Net<float>> caffe_net_;
 
@@ -85,10 +81,6 @@ class CNNSegmentation : public BaseSegmentation {
 
   // clustering model for post-processing
   std::shared_ptr<cnnseg::Cluster2D> cluster2d_;
-
-  cnn_segmentation_config::ModelConfigs config_;
-
-  DISALLOW_COPY_AND_ASSIGN(CNNSegmentation);
 };
 
 

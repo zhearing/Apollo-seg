@@ -14,10 +14,9 @@
  * limitations under the License.
  *****************************************************************************/
 
-#ifndef MODULES_PERCEPTION_OBSTACLE_LIDAR_OBJECT_BUILDER_MIN_BOX_H
-#define MODULES_PERCEPTION_OBSTACLE_LIDAR_OBJECT_BUILDER_MIN_BOX_H
+#ifndef MIN_BOX_H
+#define MIN_BOX_H
 
-#include <memory>
 #include <string>
 #include <vector>
 

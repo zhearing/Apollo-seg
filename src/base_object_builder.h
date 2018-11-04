@@ -16,7 +16,6 @@
 #ifndef BASE_OBJECT_BUILDER_H_
 #define BASE_OBJECT_BUILDER_H_
 
-#include <memory>
 #include <string>
 #include <vector>
 

@@ -17,6 +17,7 @@
 #ifndef CLUSTER2D_H_
 #define CLUSTER2D_H_
 
+#include <iostream>
 #include <algorithm>
 #include <memory>
 #include <vector>
@@ -300,11 +301,11 @@ class Cluster2D {
         continue;
       }
 
-  //    ADEBUG << "cnnseg cluster id: " << obstacle_id << " pt_number: ";
+  //    std::cout << "cnnseg cluster id: " << obstacle_id << " pt_number: ";
   //    for (auto &grid : obs->grids) {
-  //      ADEBUG << static_cast<int>(std::exp(count_pt_ptr[grid])) << " ";
+  //      std::cout << static_cast<int>(std::exp(count_pt_ptr[grid])) << " ";
   //    }
-  //    ADEBUG << std::endl;
+  //    std::cout << std::endl;
       std::shared_ptr<Object> out_obj(new apollo::perception::Object);
       out_obj->cloud = obs->cloud;
       out_obj->score = obs->score;
@@ -313,7 +314,7 @@ class Cluster2D {
       out_obj->type_probs = GetObjectTypeProbs(obs->meta_type_probs);
       objects->push_back(out_obj);
     }
-    ADEBUG << "objects->size() is: " << objects->size() << std::endl;
+    std::cout << "objects->size() is: " << objects->size() << std::endl;
   }
 
  private:
@@ -383,7 +384,7 @@ class Cluster2D {
       case MetaType::META_PEDESTRIAN:
         return ObjectType::PEDESTRIAN;
       default: {
-        AERROR << "Undefined ObjectType output by CNNSeg model.";
+        std::cerr << "Undefined ObjectType output by CNNSeg model.";
         return ObjectType::UNKNOWN;
       }
     }

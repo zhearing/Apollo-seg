@@ -34,7 +34,7 @@ class FeatureGenerator {
 
   ~FeatureGenerator() {}
 
-  bool Init(const FeatureParam& feature_param, caffe::Blob<Dtype>* out_blob);
+  bool Init(caffe::Blob<Dtype>* out_blob);
 
   void Generate(apollo::perception::pcl_util::PointCloudConstPtr pc_ptr);
 

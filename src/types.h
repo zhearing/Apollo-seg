@@ -53,6 +53,14 @@ enum SensorType {
   UNKNOWN_SENSOR_TYPE = 10,
 };
 
+struct PerceptionObstacle {
+    enum ConfidenceType {
+        CONFIDENCE_UNKNOWN = 0,
+        CONFIDENCE_CNN = 1,
+        CONFIDENCE_RADAR = 2,
+    };
+};
+
 typedef pcl_util::PointCloud PolygonType;
 typedef pcl_util::PointDCloud PolygonDType;
 
