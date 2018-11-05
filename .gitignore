@@ -11,3 +11,5 @@ CTestTestfile.cmake
 .idea/
 cmake*
 *.bin
+*.zip
+*.png

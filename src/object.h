@@ -30,7 +30,6 @@ namespace perception {
 
 struct alignas(16) Object {
   Object();
-
   // object id per frame
   int id = 0;
   // point cloud of the object
@@ -56,7 +55,7 @@ struct alignas(16) Object {
   float score = 0.0;
   // foreground score/probability type
   PerceptionObstacle::ConfidenceType score_type =
-          PerceptionObstacle::CONFIDENCE_CNN;
+      PerceptionObstacle::CONFIDENCE_CNN;
 
   // Object classification type.
   ObjectType type = ObjectType::UNKNOWN;

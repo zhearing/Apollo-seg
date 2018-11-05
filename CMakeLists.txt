@@ -29,6 +29,10 @@ find_package(Eigen3 REQUIRED)
 # CUDA
 include_directories(${CUDA_INCLUDE_DIRS})
 
+# Glog
+find_package (Glog)
+set(GLOG_LIBRARIES glog::glog)
+
 include_directories(${PROJECT_SOURCE_DIR} /usr/local/lib /usr/lib)
 link_directories(${PROJECT_BINARY_DIR}/libs)
 #set lib output path
@@ -41,15 +45,17 @@ add_library(cnn_seg src/feature_generator.cc
         src/cnn_segmentation.cc
         src/min_box.cc
         src/geometry_util.cc
-        #src/fortracking.cc
+        src/object.cc
+        #src/fortracking.cc)
         )
 link_libraries(cnn_seg)
 
 add_executable(Apollo_seg src/main.cc)
 
 target_link_libraries(Apollo_seg
-    ${Caffe_LIBRARIES}
-    ${PCL_LIBRARIES}
-    ${OpenCV_LIBRARIES}
-    ${Eigen_LIBRARIES}
-    cnn_seg)
+        ${Caffe_LIBRARIES}
+        ${PCL_LIBRARIES}
+        ${OpenCV_LIBRARIES}
+        ${Eigen_LIBRARIES}
+        cnn_seg
+        glog)

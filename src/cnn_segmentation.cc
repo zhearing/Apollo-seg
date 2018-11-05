@@ -16,6 +16,7 @@
 
 #include "cnn_segmentation.h"
 
+#define USE_GPU
 
 namespace apollo {
 namespace perception {
@@ -34,8 +35,7 @@ bool CNNSegmentation::Init() {
   caffe::Caffe::set_mode(caffe::Caffe::CPU);
 #else
   std::cout << "using Caffe GPU mode";
-  int gpu_id =
-      cnnseg_param_.has_gpu_id() ? static_cast<int>(cnnseg_param_.gpu_id()) : 0;
+  int gpu_id = 0;
   CHECK_GE(gpu_id, 0);
   caffe::Caffe::SetDevice(gpu_id);
   caffe::Caffe::set_mode(caffe::Caffe::GPU);
