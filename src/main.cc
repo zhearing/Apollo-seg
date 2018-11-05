@@ -289,20 +289,18 @@ bool TestCnnSegDet(const string &pcd_file, const string &result_path) {
     std::iota(indices.begin(), indices.end(), 0);
 
     std::vector<std::shared_ptr<apollo::perception::Object>> out_objects;
-////    MinBoxObjectBuilder *object_builder_;
-////    ObjectBuilderOptions object_builder_options_;
-////    object_builder_ = new MinBoxObjectBuilder();
-////    object_builder_options_.ref_center = Eigen::Vector3d(0, 0, -1.7);
-//    shared_ptr<CNNSegmentation> cnn_segmentor_;
-//    cnn_segmentor_.reset(new CNNSegmentation());
-//    cnn_segmentor_->Init();
-//    cnn_segmentor_->Segment(in_pc, valid_idx, &out_objects);
-////    object_builder_->Build(object_builder_options_, &out_objects);
-//    DrawDetection(in_pc, valid_idx, cnn_segmentor_->height(),
-//                  cnn_segmentor_->width(), cnn_segmentor_->range(), out_objects,
-//                  result_path);
-//    // cnn_segmentor_->Write2Json(out_objects, json_path);
-//    // std::cout << "All process completed" << std::endl;
+//    MinBoxObjectBuilder *object_builder_;
+//    ObjectBuilderOptions object_builder_options_;
+//    object_builder_ = new MinBoxObjectBuilder();
+//    object_builder_options_.ref_center = Eigen::Vector3d(0, 0, -1.7);
+////    shared_ptr<CNNSegmentation> cnn_segmentor_;
+////    cnn_segmentor_.reset(new CNNSegmentation());
+////    cnn_segmentor_->Init();
+////    cnn_segmentor_->Segment(in_pc, valid_idx, &out_objects);
+//    object_builder_->Build(object_builder_options_, &out_objects);
+////    DrawDetection(in_pc, valid_idx, cnn_segmentor_->height(),
+////                  cnn_segmentor_->width(), cnn_segmentor_->range(), out_objects,
+////                  result_path);
 
     // initialization function
     CNNSegmentation cnn_segmentor;
@@ -324,12 +322,12 @@ bool TestCnnSegDet(const string &pcd_file, const string &result_path) {
                   cnn_segmentor.width(), cnn_segmentor.range(), out_objects,
                   result_file);
 #else
-//    string result_file(result_path);
-//    result_file = result_path + "-detection.png";
-//    std::cout << result_file << std::endl;
-//    DrawDetection(in_pc, valid_idx, cnn_segmentor.height(),
-//                  cnn_segmentor.width(), cnn_segmentor.range(), out_objects,
-//                  result_file);
+    string result_file(result_path);
+    result_file = result_path + "-detection.png";
+    std::cout << result_file << std::endl;
+    DrawDetection(in_pc, valid_idx, cnn_segmentor.height(),
+                  cnn_segmentor.width(), cnn_segmentor.range(), out_objects,
+                  result_file);
 #endif
 
     return true;
